@@ -5,19 +5,10 @@ import '@fortawesome/fontawesome-free/css/all.min.css'
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Hello from "./hello";
-import HelloClass from "./Hello-class";
 
 ReactDOM.render(
-  <React.StrictMode>
-      <div>
-          <Hello/>
-          <App />
-          <HelloClass/>
-      </div>
-
-  </React.StrictMode>,
-  document.getElementById('root')
+    <App/>,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
