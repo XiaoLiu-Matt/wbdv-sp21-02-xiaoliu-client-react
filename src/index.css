@@ -19,8 +19,17 @@ code {
   z-index: 1;
 }
 
+.wbdv-editor-label {
+  right:20px;
+  bottom:20px;
+}
+
 .wbdv-green {
   color: green;
+}
+
+.wbdv-blue {
+  color: blue;
 }
 
 .wbdv-red {
