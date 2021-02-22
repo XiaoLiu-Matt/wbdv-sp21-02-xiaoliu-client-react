@@ -1,19 +1,11 @@
 import React from 'react'
 import {Link} from "react-router-dom";
-
+import './home.css';
 export default () =>
     <>
-        <div className="wbdv-sticky-nav-bar color-white">
-            <div className="row wbdv-editor-padding-right">
-                <a href="/">
-                    X
-                </a>
-                <input/>
-                <div >
-                    <i className="fas fa-plus-circle fa-2x"></i>
-                </div>
-            </div>
-        </div>
+        <h1>
+            Home
+        </h1>
         <div className="list-group">
             <Link to="/courses/table" className="list-group-item">
                 Courses Table

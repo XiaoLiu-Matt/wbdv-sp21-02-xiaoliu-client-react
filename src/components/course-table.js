@@ -12,12 +12,30 @@ export default class CourseTable extends
   render() {
     return(
       <div>
-          <Link to="/courses/grid">
-              <i className="fas fa-th float-right fa-2x"></i>
-          </Link>
-        <h2>Course Table</h2>
+        {/*<h2>Course Table</h2>*/}
         <table className="table">
-            <thead></thead>
+            <thead>
+                <tr>
+                    <td>
+                        Tittle
+                    </td>
+                    <td className="d-none d-sm-table-cell">
+                        Owned by
+                    </td>
+                    <td className="d-none d-lg-table-cell">
+                        Last modified
+                    </td>
+                    <td>
+                        <i className="fas fa-folder fa-2x" aria-hidden="true"></i>
+                        <i className="fa fa-sort fa-2x" aria-hidden="true"></i>
+                        <Link to="/courses/grid">
+                            <i className="fas fa-th fa-2x"></i>
+                        </Link>
+
+
+                    </td>
+                </tr>
+            </thead>
             <tbody>
               {/*<CourseRow title="CS5610" owner="me"/>*/}
               {/*<CourseRow title="CS3200" owner="you"/>*/}
