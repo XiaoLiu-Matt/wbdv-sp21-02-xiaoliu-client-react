@@ -26,7 +26,7 @@ return( <div className="card col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" styl
     <div className="card-body">
         {
             !editing &&
-            <Link to="/editor">
+            <Link to={`/courses/grid/edit/${course._id}`}>
                 {course.title}
             </Link>
         }
@@ -38,7 +38,7 @@ return( <div className="card col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" styl
                 value={title}/>
         }
         <p className="card-text">Some Description</p>
-        <Link to="/editor" className="btn btn-primary">
+        <Link to={`/courses/grid/edit/${course._id}`} className="btn btn-primary">
             course editor
         </Link>
 
