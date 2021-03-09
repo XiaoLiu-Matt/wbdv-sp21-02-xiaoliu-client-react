@@ -14,7 +14,10 @@ const LessonTabs = (
     }) => {
     const {layout, courseId, moduleId, lessonId} = useParams();
     useEffect(() => {
-        findLessonsForModule(moduleId)
+        // if(moduleId!==undefined && typeof moduleId!=="undefined"){
+            findLessonsForModule(moduleId)
+        // }
+
     }, [findLessonsForModule, moduleId])
         return(<div>
         {/*<h2>Lesson Tabs</h2>*/}
@@ -28,7 +31,8 @@ const LessonTabs = (
                             updateItem={updateLesson}
                             item={lesson}
                             type = 'nav-item'
-                            typeLink = 'nav-link'
+                            active={lesson._id === lessonId}
+
                         />
 
                 )

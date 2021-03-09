@@ -16,8 +16,8 @@ const ModuleList = (
     const {layout, courseId, moduleId} = useParams();
     useEffect(() => {
         // console.log(courseId)
-        findModulesForCourse(courseId)
-    }, [courseId, findModulesForCourse])
+            findModulesForCourse(courseId)
+    }, [])
     return(<div>
         {/*<h2>Module List</h2>*/}
         {/*<ul>*/}
@@ -38,6 +38,7 @@ const ModuleList = (
                             item={module}
                             type = 'list-group-item'
                             typeLink = ''
+                            active={module._id === moduleId}
                             // id = {`${module._id}`}
                         />
 

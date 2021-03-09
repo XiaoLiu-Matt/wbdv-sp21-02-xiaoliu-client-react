@@ -4,7 +4,7 @@ import EditableItem from "../editable-item";
 import {useParams} from "react-router-dom";
 import topicService from "../../services/topic-service";
 
-const LessonTabs = (
+const TopicPills = (
     {
         topics=[],
         createTopic,
@@ -12,9 +12,11 @@ const LessonTabs = (
         deleteTopic,
         findTopicsForLesson
     }) => {
-    const {layout, courseId, moduleId, lessonId} = useParams();
+    const {layout, courseId, moduleId, lessonId, topicId} = useParams();
     useEffect(() => {
-        findTopicsForLesson(lessonId)
+        // if(lessonId!==undefined &&typeof lessonId!=="undefined") {
+            findTopicsForLesson(lessonId)
+        // }
     }, [findTopicsForLesson, lessonId])
     return(<div>
         {/*<h2>Lesson Tabs</h2>*/}
@@ -24,12 +26,12 @@ const LessonTabs = (
 
 
                         <EditableItem
-                            to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lessonId}/pills/${topic._id}`}
+                            to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lessonId}/topics/${topic._id}`}
                             deleteItem={deleteTopic}
                             updateItem={updateTopic}
                             item={topic}
                             type = 'nav-item'
-                            typeLink = 'nav-link'
+                            active={topic._id === topicId}
                         />
 
                 )
@@ -68,5 +70,5 @@ const dtpm = (dispatch) => ({
 
 const pm = connect(stpm, dtpm)
 
-export default pm(LessonTabs)
+export default pm(TopicPills)
 

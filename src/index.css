@@ -35,3 +35,7 @@ code {
 .wbdv-red {
   color: red;
 }
+
+.list-group-item.active a {
+  color: white;
+}
