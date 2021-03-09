@@ -1,4 +1,4 @@
-// const COURSES_URL = "https://wbdv-generic-server.herokuapp.com/api/001385626/courses"
+//const COURSES_URL = "https://wbdv-generic-server.herokuapp.com/api/001385626/courses"
 const MODULES_URL = "https://wbdv-generic-server.herokuapp.com/api/001385626/modules"
 const LESSONS_URL = "https://wbdv-generic-server.herokuapp.com/api/001385626/lessons"
 

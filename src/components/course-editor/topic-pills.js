@@ -15,20 +15,23 @@ const LessonTabs = (
     const {layout, courseId, moduleId, lessonId} = useParams();
     useEffect(() => {
         findTopicsForLesson(lessonId)
-    }, [])
+    }, [findTopicsForLesson, lessonId])
     return(<div>
         {/*<h2>Lesson Tabs</h2>*/}
         <ul className="nav nav-pills">
             {
                 topics.map(topic =>
-                    <li className="nav-item">
+
 
                         <EditableItem
                             to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lessonId}/pills/${topic._id}`}
                             deleteItem={deleteTopic}
                             updateItem={updateTopic}
-                            item={topic}/>
-                    </li>
+                            item={topic}
+                            type = 'nav-item'
+                            typeLink = 'nav-link'
+                        />
+
                 )
             }
             <li className="nav-item">
@@ -41,8 +44,8 @@ const stpm = (state) => ({
     topics: state.topicReducer.topics
 })
 const dtpm = (dispatch) => ({
-    createTopic: (topicId) => {
-        topicService.createTopic(topicId, {title: 'New Topic'})
+    createTopic: (lessonId) => {
+        topicService.createTopic(lessonId, {title: 'New Topic'})
             .then(topic => dispatch({type: "CREATE_TOPIC", topic: topic}))
 
     },

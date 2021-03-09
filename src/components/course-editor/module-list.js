@@ -17,7 +17,7 @@ const ModuleList = (
     useEffect(() => {
         // console.log(courseId)
         findModulesForCourse(courseId)
-    }, [])
+    }, [courseId, findModulesForCourse])
     return(<div>
         {/*<h2>Module List</h2>*/}
         {/*<ul>*/}
@@ -30,13 +30,17 @@ const ModuleList = (
         <ul className="list-group">
             {
                 modules.map(module =>
-                    <li className="list-group-item">
+
                         <EditableItem
                             to={`/courses/${layout}/edit/${courseId}/modules/${module._id}`}
                             deleteItem={deleteModule}
                             updateItem={updateModule}
-                            item={module}/>
-                    </li>
+                            item={module}
+                            type = 'list-group-item'
+                            typeLink = ''
+                            // id = {`${module._id}`}
+                        />
+
                 )
             }
             <li className="list-group-item">

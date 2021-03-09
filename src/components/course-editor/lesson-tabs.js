@@ -14,21 +14,23 @@ const LessonTabs = (
     }) => {
     const {layout, courseId, moduleId, lessonId} = useParams();
     useEffect(() => {
-        // console.log(courseId)
         findLessonsForModule(moduleId)
-    }, [])
+    }, [findLessonsForModule, moduleId])
         return(<div>
         {/*<h2>Lesson Tabs</h2>*/}
         <ul className="nav nav-tabs">
             {
                 lessons.map(lesson =>
-                    <li className="nav-item">
+
                         <EditableItem
                             to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lesson._id}`}
                             deleteItem={deleteLesson}
                             updateItem={updateLesson}
-                            item={lesson}/>
-                    </li>
+                            item={lesson}
+                            type = 'nav-item'
+                            typeLink = 'nav-link'
+                        />
+
                 )
             }
             <li className="nav-item">
@@ -41,8 +43,8 @@ const stpm = (state) => ({
     lessons: state.lessonReducer.lessons
 })
 const dtpm = (dispatch) => ({
-    createLesson: (lessonId) => {
-        lessonService.createLesson(lessonId, {title: 'New Lesson'})
+    createLesson: (moduleId) => {
+        lessonService.createLesson(moduleId, {title: 'New Lesson'})
             .then(lesson => dispatch({type: "CREATE_LESSON", lesson: lesson}))
 
     },

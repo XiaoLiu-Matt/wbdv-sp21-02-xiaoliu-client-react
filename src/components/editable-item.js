@@ -6,19 +6,26 @@ const EditableItem = (
         to,
         item,
         updateItem,
-        deleteItem
+        deleteItem,
+        type,
+        typeLink,
+
     }) => {
     const [editing, setEditing] = useState(false)
     const [itemCache, setItemCache] = useState(item)
     return(
-        <>
+
+    <li className={`${type} ${(editing) ? 'active' : ''} `}>
+        <a className={`${typeLink} ${(editing) ? 'active' : ''}`}>
             {
                 !editing &&
                 <>
-                    <Link to={to}>
+                    <Link onClick={() => {
+                        updateItem(itemCache)
+                    }} to={to}>
                         {item.title}
                     </Link>
-                    <i onClick={() => setEditing(true)} className="fas fa-edit"></i>
+                    <i onClick={() => setEditing(true)} className="fas fa-edit float-right"></i>
                 </>
             }
             {
@@ -30,11 +37,17 @@ const EditableItem = (
                     <i onClick={() => {
                         setEditing(false)
                         updateItem(itemCache)
-                    }} className="fas fa-check"></i>
-                    <i onClick={() => deleteItem(item)} className="fas fa-times"></i>
+                    }} className="fas fa-check float-right"></i>
+                    <i onClick={() => deleteItem(item)} className="fas fa-times float-right"></i>
                 </>
             }
-        </>
+        </a>
+    </li>
+
+
+
+
+
     )
 }
 
