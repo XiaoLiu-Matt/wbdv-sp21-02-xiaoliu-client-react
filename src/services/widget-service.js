@@ -2,9 +2,10 @@
 // const MODULES_URL = "https://wbdv-generic-server.herokuapp.com/api/001385626/modules"
 const LESSONS_URL = "https://wbdv-generic-server.herokuapp.com/api/001385626/lessons"
 const TOPICS_URL = "https://wbdv-generic-server.herokuapp.com/api/001385626/topics"
+const WIDGET_URL = process.env.REACT_APP_WIDGET_URL
 
 export const createWidget = (topicId, widget) =>
-    fetch(`http://localhost:8080/api/topics/${topicId}/widgets`, {
+    fetch(`${WIDGET_URL}/topics/${topicId}/widgets`, {
         method: "POST",
         body: JSON.stringify(widget),
         headers: {
@@ -14,7 +15,7 @@ export const createWidget = (topicId, widget) =>
         .then(response => response.json());
 
 export const updateWidget = (wid, widget) =>
-    fetch(`http://localhost:8080/api/widgets/${wid}`, {
+    fetch(`${WIDGET_URL}/widgets/${wid}`, {
         method: "PUT",
         body: JSON.stringify(widget),
         headers: {
@@ -24,11 +25,11 @@ export const updateWidget = (wid, widget) =>
         .then(response => response.json());
 
 export const findWidgetsForTopic = (topicId) =>
-    fetch(`http://localhost:8080/api/topics/${topicId}/widgets`)
+    fetch(`${WIDGET_URL}/topics/${topicId}/widgets`)
         .then(response => response.json())
 
 export const deleteWidget = (wid) =>
-    fetch(`http://localhost:8080/api/widgets/${wid}`, {
+    fetch(`${WIDGET_URL}/widgets/${wid}`, {
         method: "DELETE",
     }).then(response => response.json());
 
