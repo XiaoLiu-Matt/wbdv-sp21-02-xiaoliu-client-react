@@ -30,24 +30,24 @@ const WidgetList = (
                 {
                     widgets.map(widget =>
                         <li className="list-group-item" key={widget.id}>
-                            {
-                                editingWidget.id === widget.id &&
-                                <>
-                                    <i onClick={() => {
-                                        updateWidget(widget)
-                                        setEditingWidget({})
-                                    }} className="fas fa-2x fa-check float-right"></i>
-                                    <i onClick={() => deleteWidget(widget)} className="fas fa-2x fa-trash float-right"></i>
-                                </>
-                            }
-                            {
-                                editingWidget.id !== widget.id &&
-                                <i onClick={() => setEditingWidget(widget)} className="fas fa-2x fa-cog float-right"></i>
-                            }
+                            {/*{*/}
+                            {/*    editingWidget.id === widget.id &&*/}
+                            {/*    <>*/}
+                            {/*        <i onClick={() => {*/}
+                            {/*            updateWidget(widget)*/}
+                            {/*            setEditingWidget({})*/}
+                            {/*        }} className="fas fa-2x fa-check float-right"></i>*/}
+                            {/*        <i onClick={() => deleteWidget(widget)} className="fas fa-2x fa-trash float-right"></i>*/}
+                            {/*    </>*/}
+                            {/*}*/}
+                            {/*{*/}
+                            {/*    editingWidget.id !== widget.id &&*/}
+                            {/*    <i onClick={() => setEditingWidget(widget)} className="fas fa-2x fa-cog float-right"></i>*/}
+                            {/*}*/}
                             {
                                 widget.type === "HEADING" &&
                                 <HeadingWidget
-                                    editing={editingWidget.id === widget.id}
+                                    // editing={editingWidget.id === widget.id}
                                     widget={widget}
                                     updateItem = {updateWidget}
                                     deleteItem = {deleteWidget}
@@ -56,14 +56,16 @@ const WidgetList = (
                             {
                                 widget.type === "PARAGRAPH" &&
                                 <ParagraphWidget
-                                    editing={editingWidget.id === widget.id}
-                                    widget={widget}/>
+                                    widget={widget}
+                                    updateItem = {updateWidget}
+                                    deleteItem = {deleteWidget}
+                                />
                             }
                         </li>
                     )
                 }
             </ul>
-            {JSON.stringify(widgets)}
+            {/*{JSON.stringify(widgets)}*/}
         </div>
     )}
 
