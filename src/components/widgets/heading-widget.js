@@ -27,9 +27,9 @@ const HeadingWidget = ({widget, updateItem, deleteItem}) => {
                             <option value={"HEADING"}>Heading</option>
                             <option value={"PARAGRAPH"}>Paragraph</option>
                             <option value={"HEADING"}>Video</option>
-                            <option value={"HEADING"}>Image</option>
+                            <option value={"IMAGE"}>Image</option>
                             <option value={"HEADING"}>Link</option>
-                            <option value={"HEADING"}>List</option>
+                            <option value={"LIST"}>List</option>
                             <option value={"HEADING"}>HTML</option>
                         </select>
                         <input onChange={(e) => setItemCache({...itemCache, text: e.target.value})} value={itemCache.text} className="form-control"/>

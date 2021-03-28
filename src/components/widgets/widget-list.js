@@ -5,6 +5,8 @@ import {useParams} from "react-router-dom";
 import widgetService from "../../services/widget-service";
 import HeadingWidget from "./heading-widget";
 import ParagraphWidget from "./paragraph-widget";
+import ListWidget from "./list-widget";
+import ImageWidget from "./image-widget";
 
 const WidgetList = (
     {
@@ -61,6 +63,22 @@ const WidgetList = (
                                     deleteItem = {deleteWidget}
                                 />
                             }
+                            {
+                                widget.type === "LIST" &&
+                                <ListWidget
+                                    widget={widget}
+                                    updateItem = {updateWidget}
+                                    deleteItem = {deleteWidget}
+                                />
+                            }
+                            {
+                                widget.type === "IMAGE" &&
+                                <ImageWidget
+                                    widget={widget}
+                                    updateItem = {updateWidget}
+                                    deleteItem = {deleteWidget}
+                                />
+                            }
                         </li>
                     )
                 }
@@ -74,7 +92,7 @@ const stpm = (state) => ({
 })
 const dtpm = (dispatch) => ({
     createWidget: (topicId) => {
-        widgetService.createWidget(topicId, {type: "HEADING", size: 1, text: "New Widget"})
+        widgetService.createWidget(topicId, {type: "HEADING", size: 1, text: "New Widget",widgetOrder:0, width:100, height:100, src:"https://upload.wikimedia.org/wikipedia/commons/4/41/Sunflower_from_Silesia2.jpg"})
             .then(widget => dispatch({type: "CREATE_WIDGET", widget: widget}))
     },
     updateWidget: (newItem) => {

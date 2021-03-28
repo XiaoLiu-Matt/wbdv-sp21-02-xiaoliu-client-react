@@ -27,9 +27,9 @@ const ParagraphWidget = ({widget, updateItem, deleteItem}) => {
                         <option value={"HEADING"}>Heading</option>
                         <option value={"PARAGRAPH"}>Paragraph</option>
                         <option value={"PARAGRAPH"}>Video</option>
-                        <option value={"PARAGRAPH"}>Image</option>
+                        <option value={"IMAGE"}>Image</option>
                         <option value={"PARAGRAPH"}>Link</option>
-                        <option value={"PARAGRAPH"}>List</option>
+                        <option value={"LIST"}>List</option>
                         <option value={"PARAGRAPH"}>HTML</option>
                     </select>
                     <textarea onChange={(e) => setItemCache({...itemCache, text: e.target.value})} value={itemCache.text} className="form-control"></textarea>
