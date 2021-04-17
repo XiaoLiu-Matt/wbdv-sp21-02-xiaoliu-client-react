@@ -5,8 +5,21 @@ const findAllQuizzes = () => {
 }
 const findQuizById = (qid) => {
     return fetch(`${QUIZZES_URL}/${qid}`)
-        .then(response => response.json())
+        .then(response => {
+            const result = response.json()
+            return result})
 }
+const submitQuiz = (quizId, questions) => {
+    fetch(`http://localhost:4000/api/quizzes/${quizId}/attempts`, {
+        method: 'POST',
+        body: JSON.stringify(questions),
+        headers: {
+            'content-type': 'application/json'
+        }
+    }).then(response => response.json())
+        .then(result => console.log(result))
+}
+
 export default {
-    findAllQuizzes, findQuizById
+    findAllQuizzes, findQuizById, submitQuiz
 }

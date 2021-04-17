@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom"
 import Question from "./questions/question";
 import api from '../../services/question-service'
+import apiQuiz from '../../services/quiz-service'
 const Quiz = () => {
     const {quizId} = useParams()
     const [questions, setQuestions] = useState([])
@@ -10,6 +11,7 @@ const Quiz = () => {
         api.findQuestionsForQuiz(quizId)
             .then((questions) => {
                 setQuestions(questions)
+                console.log(questions)
             })
     }, [])
 
@@ -19,6 +21,7 @@ const Quiz = () => {
             <ul>
                 {
                     questions.map((question) => {
+
                         return(
                             <li>
                                 <Question question={question}/>
@@ -27,6 +30,10 @@ const Quiz = () => {
                     })
                 }
             </ul>
+            <button className="btn btn-success" onClick={()=>{apiQuiz.submitQuiz(quizId,questions)}}>
+                Submit
+            </button>
+
         </div>
     )
 }
